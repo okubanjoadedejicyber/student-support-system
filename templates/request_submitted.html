@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}Request Submitted{% endblock %}
+
+{% block content %}
+
+<section class="submission-success">
+
+    <h1>Request Submitted Successfully!</h1>
+
+    <p>
+        Your support request has been received and saved successfully.
+    </p>
+
+    <div class="reference-box">
+
+        <p>Your Tracking ID / Reference Number:</p>
+
+        <h2>{{ support_request.reference_number }}</h2>
+
+    </div>
+
+    <p>
+        Please keep this tracking ID safe.
+        You will need it to check the progress of your request.
+    </p>
+
+    <a href="{{ url_for('track_request') }}" class="btn">
+        Track My Request
+    </a>
+
+    <a href="{{ url_for('index') }}" class="btn btn-outline">
+        Return Home
+    </a>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}Track Request{% endblock %}
+
+{% block content %}
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h1>Track Your Request</h1>
+
+        <p>
+            Enter your matric number and reference number
+            to check your request.
+        </p>
+
+        <form method="POST">
+
+            <div class="form-group">
+                <label>Matric Number</label>
+
+                <input type="text" name="matric_number" placeholder="Enter matric number" required>
+            </div>
+
+            <div class="form-group">
+                <label>Reference Number</label>
+
+                <input type="text" name="reference_number" placeholder="SSR-XXXXXXXX" required>
+            </div>
+
+            <button type="submit" class="btn submit-btn">
+                Track Request
+            </button>
+
+        </form>
+
+        {% if support_request %}
+
+        <div class="tracking-result">
+
+            <h2>Request Details</h2>
+
+            <p>
+                <strong>Reference:</strong>
+                {{ support_request.reference_number }}
+            </p>
+
+            <p>
+                <strong>Name:</strong>
+                {{ support_request.student_name }}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                {{ support_request.category }}
+            </p>
+
+            <p>
+                <strong>Subject:</strong>
+                {{ support_request.subject }}
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                {{ support_request.description }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ support_request.status }}
+            </p>
+
+            {% if support_request.admin_response %}
+
+            <h3>Administrative Response</h3>
+
+            <p>{{ support_request.admin_response }}</p>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

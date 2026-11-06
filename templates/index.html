@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - Student Support Portal{% endblock %}
+
+{% block content %}
+
+{% if submitted and support_request %}
+
+<section class="submission-success">
+
+    <h2>Request Submitted Successfully!</h2>
+
+    <p>
+        Your support request has been received and saved.
+    </p>
+
+    <div class="reference-box">
+
+        <p>Your Reference Number:</p>
+
+        <h2>{{ support_request.reference_number }}</h2>
+
+    </div>
+
+    <p>
+        Keep this reference number to track your request.
+    </p>
+
+    <a href="{{ url_for('track_request') }}" class="btn">
+        Track My Request
+    </a>
+
+</section>
+
+{% endif %}
+
+<section class="hero">
+
+    <h1>How Can We Help You?</h1>
+
+    <p>
+        Submit your academic or administrative support request
+        and track its progress easily.
+    </p>
+
+    <a href="{{ url_for('submit_request') }}" class="btn">
+        Submit a Request
+    </a>
+
+    <a href="{{ url_for('track_request') }}" class="btn btn-outline">
+        Track a Request
+    </a>
+
+</section>
+
+<section class="features">
+
+    <div class="feature-card">
+        <h3>Submit Requests</h3>
+        <p>Send academic or administrative complaints to the appropriate department.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Track Progress</h3>
+        <p>Know whether your request has been received or is being processed.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Get Resolutions</h3>
+        <p>Follow your request until the issue is resolved.</p>
+    </div>
+
+</section>
+
+{% endblock %}
